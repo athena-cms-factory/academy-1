@@ -1,5 +1,18 @@
 # Changelog - Athena CMS Factory
 
+## [8.8.2] - 2026-03-17
+### 🚀 MODULAR DATA & SMARTICON EVOLUTION
+- **Modular Data Architecture (1-on-1 Rule)**: Harde scheiding tussen Content (zichtbaar voor klant) en Config (verborgen via `_` prefix in Sheets).
+- **SmartIcon System**: `GenericSection` rendert nu intelligent SVG-paden uit de Sheet als echte iconen, met fallback naar FontAwesome.
+- **Dynamic Data Loader**: `main.jsx` scant nu automatisch de hele `src/data/` map, wat handmatige imports overbodig maakt.
+- **Glassmorphism UI**: Standaard `GenericSection` kaarten geüpgraded van hard wit naar een moderne transparante blur-stijl.
+
+## [8.8.0] - 2026-03-15
+### 🔱 PM2 ORCHESTRATION & PRODUCTION SYNC
+- **PM2 Integration**: Volledige overstap naar PM2 voor procesbeheer (`athena-api` en `athena-ui`).
+- **Path Standardization**: Alle interne paden gecorrigeerd naar de nieuwe `/0-IT/2-Productie/` standaard.
+- **athena-x Unification**: De `athena-x` monorepo is nu de leidende productie-omgeving (v8.8).
+
 ## [8.5.0] - 2026-03-08
 ### 🏆 MAJOR MILESTONE: FULL SYSTEM SYNC & COMPONENT EXCELLENCE
 - **Self-Reporting CSS Bridge**: De site-connector (`dock-connector.jsx`) scant nu berekende CSS variabelen en stuurt deze als defaults naar de Dock. Dit lost het "Black Pickers" probleem definitief op.
