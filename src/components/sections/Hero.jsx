@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline'; 
+import { placeholderImage } from '../../utils/placeholder';
 
 const Hero = ({ id, data, settings }) => {
   const handleScroll = (e) => {
@@ -10,13 +11,8 @@ const Hero = ({ id, data, settings }) => {
     }
   };
 
-  const getPlaceholderImage = (prompt) => {
-    const keywords = (prompt || 'academy education').split(', ')[0].replace(/ /g, '-').toLowerCase();
-    return `https://picsum.photos/seed/${keywords}/1920/1080`; 
-  };
-
   const backgroundStyle = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${getPlaceholderImage('high tech academy learning')})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${placeholderImage('high tech academy learning', '1920/1080')})`,
   };
 
   return (
