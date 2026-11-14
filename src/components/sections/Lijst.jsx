@@ -1,13 +1,8 @@
 import React from 'react';
 import { BookOpenIcon, UserGroupIcon, AcademicCapIcon, CurrencyEuroIcon, StarIcon } from '@heroicons/react/24/solid'; 
+import { placeholderImage } from '../../utils/placeholder';
 
 // --- Sub-components for specific content types ---
-
-// Utility function for placeholder images
-const getPlaceholderImage = (prompt, size = '600/400') => {
-  const keywords = (prompt || 'academy').split(', ')[0].replace(/ /g, '-').toLowerCase();
-  return `https://picsum.photos/seed/${keywords}/${size}`;
-};
 
 // 1. Cursussen Renderer
 const CoursesRenderer = ({ data, id }) => (
@@ -15,7 +10,7 @@ const CoursesRenderer = ({ data, id }) => (
     {data.map((course, index) => (
       <div key={index} className="w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(33.333%-2.5rem)] max-w-sm bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-primary/20 transition-all duration-300 transform hover:-translate-y-1 border border-secondary/50">
         <img 
-          src={getPlaceholderImage(course.image_prompt)} 
+          src={placeholderImage(course.image_prompt)}
           alt={course.titel} 
           className="card-img"
           data-dock-type="image"
@@ -74,7 +69,7 @@ const TeachersRenderer = ({ data, id }) => (
       <div key={index} className="w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-2rem)] max-w-[280px] bg-white p-6 rounded-xl shadow-xl border border-gray-100 text-center transition-all duration-300 hover:shadow-primary/10">
         <div className="relative w-32 h-32 mx-auto mb-4">
           <img 
-            src={getPlaceholderImage(teacher.foto_prompt, '256/256')} 
+            src={placeholderImage(teacher.foto_prompt, '256/256')}
             alt={teacher.naam} 
             className="w-full h-full object-cover rounded-full border-4 border-primary/50 ring-4 ring-primary/20"
             data-dock-type="image"
