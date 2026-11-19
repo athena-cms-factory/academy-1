@@ -2,6 +2,11 @@ import React from 'react';
 import { BookOpenIcon, UserGroupIcon, AcademicCapIcon, CurrencyEuroIcon, StarIcon } from '@heroicons/react/24/solid'; 
 import { placeholderImage } from '../../utils/placeholder';
 
+// Gebruik een echte afbeelding als die in de data staat, anders de SVG-placeholder
+const imageSrc = (file, prompt, size) => file
+  ? `${import.meta.env.BASE_URL}images/${file}`
+  : placeholderImage(prompt, size);
+
 // --- Sub-components for specific content types ---
 
 // 1. Cursussen Renderer
@@ -10,11 +15,11 @@ const CoursesRenderer = ({ data, id }) => (
     {data.map((course, index) => (
       <div key={index} className="w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(33.333%-2.5rem)] max-w-sm bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-primary/20 transition-all duration-300 transform hover:-translate-y-1 border border-secondary/50">
         <img 
-          src={placeholderImage(course.image_prompt)}
+          src={imageSrc(course.image, course.image_prompt)}
           alt={course.titel} 
           className="card-img"
           data-dock-type="image"
-          data-dock-bind={`${id}.${index}.image_prompt`}
+          data-dock-bind={`${id}.${index}.image`}
         />
         <div className="p-6">
           <h3 
@@ -69,11 +74,11 @@ const TeachersRenderer = ({ data, id }) => (
       <div key={index} className="w-full sm:w-[calc(50%-2rem)] lg:w-[calc(25%-2rem)] max-w-[280px] bg-white p-6 rounded-xl shadow-xl border border-gray-100 text-center transition-all duration-300 hover:shadow-primary/10">
         <div className="relative w-32 h-32 mx-auto mb-4">
           <img 
-            src={placeholderImage(teacher.foto_prompt, '256/256')}
+            src={imageSrc(teacher.foto, teacher.foto_prompt, '256/256')}
             alt={teacher.naam} 
             className="w-full h-full object-cover rounded-full border-4 border-primary/50 ring-4 ring-primary/20"
             data-dock-type="image"
-            data-dock-bind={`${id}.${index}.foto_prompt`}
+            data-dock-bind={`${id}.${index}.foto`}
           />
         </div>
         

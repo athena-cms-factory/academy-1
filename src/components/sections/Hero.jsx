@@ -1,6 +1,5 @@
 import React from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline'; 
-import { placeholderImage } from '../../utils/placeholder';
 
 const Hero = ({ id, data, settings }) => {
   const handleScroll = (e) => {
@@ -12,7 +11,7 @@ const Hero = ({ id, data, settings }) => {
   };
 
   const backgroundStyle = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${placeholderImage('high tech academy learning', '1920/1080')})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${import.meta.env.BASE_URL}images/hero-academy.webp)`,
   };
 
   return (
